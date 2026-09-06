@@ -57,6 +57,15 @@ class Settings(BaseSettings):
     GEMINI_API_KEY: str = ""
     OPENAI_API_KEY: str = ""
 
+    # Email OTP and controlled inspector access
+    SMTP_HOST: str = ""
+    SMTP_PORT: int = 587
+    SMTP_USERNAME: str = ""
+    SMTP_PASSWORD: str = ""
+    SMTP_FROM: str = "SafetyBite-AI <no-reply@safebite-ai.local>"
+    INSPECTOR_ACCESS_KEY: str = "SB-INSPECTOR-2026"
+    AUTH_DEV_OTP_ENABLED: bool = True
+
     # Rules Schema Path
     RULES_JSON_PATH: str = "/app/rules/lm_rules_2011.json"
 

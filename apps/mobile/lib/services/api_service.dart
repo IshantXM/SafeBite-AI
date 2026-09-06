@@ -36,6 +36,37 @@ class ApiService {
     }
   }
 
+  static Future<String?> requestOtp(String email) async {
+    try {
+      final response = await _dio.post('$baseUrl/api/v1/auth/request-otp', data: {'email': email});
+      return response.data is Map ? response.data['dev_otp'] as String? : null;
+    } on DioException {
+      return null;
+    }
+  }
+
+  static Future<bool> verifyOtp({required String email, required String code, required String role}) async {
+    try {
+      final response = await _dio.post('$baseUrl/api/v1/auth/verify-otp', data: {
+        'email': email,
+        'code': code,
+        'requested_role': role,
+      });
+      return response.statusCode == 200 && response.data is Map && response.data['access_token'] != null;
+    } on DioException {
+      return false;
+    }
+  }
+
+  static Future<bool> loginWithInspectorKey(String accessKey) async {
+    try {
+      final response = await _dio.post('$baseUrl/api/v1/auth/inspector-key', data: {'access_key': accessKey});
+      return response.statusCode == 200 && response.data is Map && response.data['access_token'] != null;
+    } on DioException {
+      return false;
+    }
+  }
+
   static Future<ScanResult> scanVerify({
     required String imagePath,
     String? productName,
