@@ -2,19 +2,19 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: sentinel-config
-  namespace: lms-sentinel
+  namespace: SafetyBite-AI
 data:
   ENVIRONMENT: "production"
-  PROJECT_NAME: "LMS-Sentinel"
+  PROJECT_NAME: "SafetyBite-AI"
   API_V1_STR: "/api/v1"
-  POSTGRES_SERVER: "postgres-postgis.lms-sentinel.svc.cluster.local"
+  POSTGRES_SERVER: "postgres-postgis.SafetyBite-AI.svc.cluster.local"
   POSTGRES_PORT: "5432"
   POSTGRES_DB: "lms_sentinel"
-  REDIS_HOST: "redis.lms-sentinel.svc.cluster.local"
+  REDIS_HOST: "redis.SafetyBite-AI.svc.cluster.local"
   REDIS_PORT: "6379"
-  MINIO_ENDPOINT: "minio.lms-sentinel.svc.cluster.local:9000"
+  MINIO_ENDPOINT: "minio.SafetyBite-AI.svc.cluster.local:9000"
   MINIO_BUCKET_INSPECTIONS: "sentinel-inspections"
   MINIO_BUCKET_REPORTS: "sentinel-reports"
-  REPORT_GENERATOR_URL: "http://report-generator.lms-sentinel.svc.cluster.local:8002"
+  REPORT_GENERATOR_URL: "http://report-generator.SafetyBite-AI.svc.cluster.local:8002"
   EAN13_NOMINAL_WIDTH_MM: "37.29"
   CLAHE_CLIP_LIMIT: "2.5"

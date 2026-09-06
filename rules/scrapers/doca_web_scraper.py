@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-LMS-Sentinel: Official Statutory Document Web Scraper
+SafetyBite-AI: Official Statutory Document Web Scraper
 Department of Consumer Affairs (DOCA), Ministry of Consumer Affairs, Government of India.
 
 Scrapes official gazette notifications, Acts, Rules, and Amendments from:
@@ -53,7 +53,7 @@ class DOCAWebScraper:
         self.session = requests.Session() if requests else None
         if self.session:
             self.session.headers.update({
-                "User-Agent": "LMS-Sentinel-DOCA-Auditor/1.0 (+https://consumeraffairs.nic.in)"
+                "User-Agent": "SafetyBite-AI-DOCA-Auditor/1.0 (+https://consumeraffairs.nic.in)"
             })
 
     def fetch_page(self, url: str) -> str:

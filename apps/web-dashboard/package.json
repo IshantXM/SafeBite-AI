@@ -1,5 +1,5 @@
 {
-  "name": "lms-sentinel-web-dashboard",
+  "name": "SafetyBite-AI-web-dashboard",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -7,7 +7,7 @@
     "dev": "vite --host",
     "dev:https": "vite --host --https",
     "tunnel": "npx localtunnel --port 5173",
-    "tunnel:doca": "npx localtunnel --port 5173 --subdomain lms-sentinel-doca",
+    "tunnel:doca": "npx localtunnel --port 5173 --subdomain SafetyBite-AI-doca",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },

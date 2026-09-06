@@ -25,18 +25,26 @@ async def list_rules(
     current_user: AuthUser = Depends(require_roles([UserRole.SUPERVISOR, UserRole.ADMIN]))
 ):
     """Retrieves all statutory rule configurations."""
-    result = await db.execute(select(RuleConfiguration).order_by(RuleConfiguration.updated_at.desc()))
-    return result.scalars().all()
+    try:
+        result = await db.execute(select(RuleConfiguration).order_by(RuleConfiguration.updated_at.desc()))
+        return result.scalars().all()
+    except Exception as exc:
+        raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail=f"Rule store unavailable: {exc}") from exc
 
 
 @router.get("/active", response_model=RuleConfigurationResponse)
 async def get_active_rules(db: AsyncSession = Depends(get_db)):
     """Fetches the currently active statutory rule set."""
-    result = await db.execute(select(RuleConfiguration).where(RuleConfiguration.is_active == True))
-    active_rule = result.scalar_one_or_none()
-    if not active_rule:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No active rule configuration found")
-    return active_rule
+    try:
+        result = await db.execute(select(RuleConfiguration).where(RuleConfiguration.is_active == True))
+        active_rule = result.scalar_one_or_none()
+        if not active_rule:
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="No active rule configuration found")
+        return active_rule
+    except HTTPException:
+        raise
+    except Exception as exc:
+        raise HTTPException(status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail=f"Rule store unavailable: {exc}") from exc
 
 
 @router.post("", response_model=RuleConfigurationResponse, status_code=status.HTTP_201_CREATED)

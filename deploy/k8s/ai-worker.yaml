@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: sentinel-ai-worker
-  namespace: lms-sentinel
+  namespace: SafetyBite-AI
   labels:
     app: sentinel-ai-worker
 spec:
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: ai-worker
-          image: lms-sentinel/ai-inference:latest
+          image: SafetyBite-AI/ai-inference:latest
           imagePullPolicy: IfNotPresent
           envFrom:
             - configMapRef:

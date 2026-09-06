@@ -17,7 +17,7 @@ logging.basicConfig(
 logger = logging.getLogger("ReportGenerator")
 
 app = FastAPI(
-    title="LMS-Sentinel Statutory Report & Notice Generator",
+    title="SafetyBite-AI Statutory Report & Notice Generator",
     description="WeasyPrint PDF Synthesis & PKI Digital Signature Service - Ministry of Consumer Affairs, Govt of India",
     version="1.0.0"
 )

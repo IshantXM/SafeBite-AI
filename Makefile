@@ -1,7 +1,7 @@
 .PHONY: help init build up down logs restart migrate test seed clean scrape-rules parse-rules
 
 help:
-	@echo "LMS-Sentinel (Legal Metrology Sentinel) - Command Automation"
+	@echo "SafetyBite-AI (Legal Metrology Sentinel) - Command Automation"
 	@echo "------------------------------------------------------------"
 	@echo "make init          - Initialize development environment and copies .env"
 	@echo "make build         - Build all Docker service images"

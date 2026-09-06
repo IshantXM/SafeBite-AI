@@ -1,4 +1,4 @@
-# LMS-Sentinel (Legal Metrology Sentinel)
+# SafetyBite-AI (Legal Metrology Sentinel)
 
 **AI-Powered Legal Metrology Compliance Verification and Enforcement System**  
 *Department of Consumer Affairs (DOCA), Ministry of Consumer Affairs, Food and Public Distribution, Government of India*
@@ -7,7 +7,7 @@
 
 ## 1. System Overview
 
-**LMS-Sentinel** is an enterprise-grade, end-to-end legal metrology compliance enforcement monorepo. It automates the detection, measurement, and judicial notice generation for packaged commodities under the statutory mandate of:
+**SafetyBite-AI** is an enterprise-grade, end-to-end legal metrology compliance enforcement monorepo. It automates the detection, measurement, and judicial notice generation for packaged commodities under the statutory mandate of:
 - **The Legal Metrology Act, 2009** (Act No. 1 of 2010, Sections 18 & 36)
 - **The Legal Metrology (Packaged Commodities) Rules, 2011** (G.S.R. 202(E) and 2017/2021 Amendments)
   - **Rule 6(1)(a)**: Name and complete address of manufacturer/packer/importer.
@@ -26,7 +26,7 @@
 The project is split into clearly separated frontend and backend areas.
 
 ```
-lms-sentinel/
+SafetyBite-AI/
 ├── apps/                              # Frontend / client applications
 │   ├── mobile/                        # Flutter field app for inspectors
 │   │   └── lib/                       # Dart source
@@ -68,7 +68,72 @@ lms-sentinel/
 
 ---
 
-## 3. Statutory File Catalog & Web/PDF Scraper
+## 3. Quick Start: Running Everything
+
+### Prerequisites
+- **Docker & Docker Compose** (recommended for full stack)
+- **Python 3.10+** (for backend local development)
+- **Node.js 18+** (for frontend)
+- **Flutter 3.13+** (for mobile app)
+- **Android SDK** (for building APK)
+
+### Option A: Run Everything with Docker Compose (Easiest)
+```bash
+cd deploy
+docker-compose up -d
+```
+- Backend API: http://localhost:8000/docs
+- Web Dashboard: http://localhost:5173/
+- PostgreSQL: localhost:5432
+- Wait 30 seconds for Postgres to initialize
+
+### Option B: Run Backend + Frontend Separately (Best for Development)
+
+#### 1. Start Backend API
+```bash
+cd services/core-api
+python -m venv venv
+venv\Scripts\activate  # Windows | source venv/bin/activate for Mac/Linux
+pip install -r requirements.txt
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+```
+✅ Check health: `curl http://localhost:8000/health`
+
+#### 2. Start Web Dashboard (React)
+```bash
+cd apps/web-dashboard
+npm install
+npm run dev -- --host 0.0.0.0
+```
+Open: http://localhost:5173/
+
+#### 3. Build & Deploy Mobile App on USB Device
+
+**Connect your Android device via USB with USB debugging enabled.**
+
+```bash
+cd apps/mobile
+flutter clean
+flutter pub get
+flutter build apk --release
+# Generates: build/app/outputs/flutter-apk/app-release.apk
+```
+
+To install and run on connected device:
+```bash
+flutter run -v
+```
+
+Or install manually:
+```bash
+adb install build\app\outputs\flutter-apk\app-release.apk
+```
+
+**Note for USB Testing:** The Flutter app is configured to connect to `http://10.0.2.2:8000` (Android localhost alias). If testing on a physical device on the same network, change this in [apps/mobile/lib/services/api_service.dart](apps/mobile/lib/services/api_service.dart) to your PC's local IP (e.g., `http://192.168.1.100:8000`).
+
+---
+
+## 4. Statutory File Catalog & Web/PDF Scraper
 
 ### Ingesting Printed Rules & Act PDFs
 You can provide official printed PDFs of the Legal Metrology Act, 2009, Packaged Commodities Rules, 2011, and any Gazette Notifications:
@@ -88,7 +153,7 @@ The scraper computes SHA-256 integrity hashes for each downloaded PDF and regist
 
 ---
 
-## 4. Key Subsystems
+## 5. Key Subsystems
 
 ### A. Core API (`services/core-api/`)
 - Built with **FastAPI Async**, **SQLAlchemy 2.0**, and **PostGIS (GeoAlchemy2)**.

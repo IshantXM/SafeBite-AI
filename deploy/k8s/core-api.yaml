@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: sentinel-core-api
-  namespace: lms-sentinel
+  namespace: SafetyBite-AI
   labels:
     app: sentinel-core-api
 spec:
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: core-api
-          image: lms-sentinel/core-api:latest
+          image: SafetyBite-AI/core-api:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8000
@@ -44,7 +44,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: core-api
-  namespace: lms-sentinel
+  namespace: SafetyBite-AI
 spec:
   type: ClusterIP
   selector:

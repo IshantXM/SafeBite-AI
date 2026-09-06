@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-LMS-Sentinel: Official Legal Metrology PDF Statutory Rule & Schedule Parser
+SafetyBite-AI: Official Legal Metrology PDF Statutory Rule & Schedule Parser
 Extracts clauses, Schedule II font size matrices, and statutory penalties from printed PDFs.
 Compiles machine-readable JSON into rules/catalog/parsed_clauses/ and updates rules/lm_rules_2011.json.
 """

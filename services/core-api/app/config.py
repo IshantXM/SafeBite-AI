@@ -6,7 +6,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     ENVIRONMENT: str = "production"
-    PROJECT_NAME: str = "LMS-Sentinel Core API"
+    PROJECT_NAME: str = "SafetyBite-AI Core API"
     SECRET_KEY: str = "sentinel_prod_sec_key_change_in_production_89f1a23c4d5e"
     API_V1_STR: str = "/api/v1"
     
@@ -44,7 +44,7 @@ class Settings(BaseSettings):
 
     # Keycloak
     KEYCLOAK_SERVER_URL: str = "http://keycloak:8080"
-    KEYCLOAK_REALM: str = "lms-sentinel"
+    KEYCLOAK_REALM: str = "SafetyBite-AI"
     KEYCLOAK_CLIENT_ID: str = "sentinel-api"
     KEYCLOAK_CLIENT_SECRET: str = "sentinel_keycloak_secret_2026"
     KEYCLOAK_PUBLIC_KEY: str = ""

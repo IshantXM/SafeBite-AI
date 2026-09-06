@@ -12,7 +12,7 @@ export const Navbar: React.FC = () => {
           </div>
           <div>
             <div className="flex items-center space-x-2">
-              <h1 className="font-extrabold text-lg tracking-tight text-white">LMS-SENTINEL</h1>
+              <h1 className="font-extrabold text-lg tracking-tight text-white">SafetyBite-AI</h1>
               <span className="text-[10px] bg-blue-500/20 text-blue-300 font-semibold px-2 py-0.5 rounded border border-blue-400/30">
                 DOCA GOVT OF INDIA
               </span>
