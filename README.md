@@ -151,9 +151,54 @@ python rules/scrapers/doca_web_scraper.py --output-dir rules/catalog/raw_pdfs
 ```
 The scraper computes SHA-256 integrity hashes for each downloaded PDF and registers them in `rules/catalog/catalog_manifest.json`.
 
+## 6. Project Status & Deliverables
+
+### ✅ Completed Components
+
+#### Backend (FastAPI)
+- ✅ Core API (`/api/v1/scan-verify`) with real OCR pipeline  
+- ✅ Health check endpoint (`/health`) for deployment
+- ✅ Database migrations setup (Alembic)
+- ✅ CORS middleware enabled for cross-origin requests
+- ✅ Graceful error handling (503 when DB unavailable)
+- ✅ Test suite passing (health, rules, scan endpoints)
+
+#### Frontend - Mobile (Flutter)
+- ✅ Complete Material 3 UI/UX with Google Fonts (Inter)
+- ✅ All 7 screens implemented:
+  - `LoginScreen` - Inspector authentication
+  - `DashboardScreen` - Home with inspection counters
+  - `LiveVerificationScreen` - Real-time scan pipeline
+  - `ScanEvaluationScreen` - Findings review
+  - `VerificationReportScreen` - Report generation
+  - `InspectionLogScreen` - Historical records
+  - `ProfileScreen` - Inspector profile
+- ✅ API Service with fallback offline mode
+- ✅ Models for InspectionItem, ComplianceFinding, ScanResult, InspectionReportData
+- ✅ Ready to build APK and install on USB device
+
+#### Frontend - Web Dashboard (React + Vite)
+- ✅ React 18 + TypeScript + Tailwind CSS setup
+- ✅ Runs on `localhost:5173` in development
+- ✅ Package dependencies configured
+
+### 🔧 Current Build Status
+- **Mobile App**: Debug APK currently building and installing on USB device (CPH2569, Android 15)
+- **Backend API**: Running on `http://localhost:8000`  
+- **Web Dashboard**: Ready to run with `npm run dev`
+
+### 📋 USB Device Installation
+Once the build completes (in progress):
+```bash
+# APK will be installed automatically via flutter run
+# Or manually from: apps/mobile/build/app/outputs/flutter-apk/app-debug.apk
+```
+
+**Device Status**: Connected ✓ (CPH2569, Android 15, API 35)
+
 ---
 
-## 5. Key Subsystems
+## 7. Troubleshooting
 
 ### A. Core API (`services/core-api/`)
 - Built with **FastAPI Async**, **SQLAlchemy 2.0**, and **PostGIS (GeoAlchemy2)**.
