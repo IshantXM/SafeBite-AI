@@ -23,31 +23,48 @@
 
 ## 2. Monorepo Architecture
 
+The project is split into clearly separated frontend and backend areas.
+
 ```
 lms-sentinel/
-├── apps/
-│   ├── mobile/                  # Flutter (Dart 3.x) Offline-first Field App (Riverpod, SQLite, CameraX)
-│   └── web-dashboard/           # React 18 + TypeScript + Vite + Tailwind CSS Admin Portal
-├── services/
-│   ├── api-gateway/             # NGINX reverse proxy, rate limiter & SSL/CORS router
-│   ├── core-api/                # FastAPI (Async) + SQLAlchemy 2.0 + PostgreSQL 16/PostGIS + Alembic
-│   ├── ai-inference/            # Celery Worker + OpenCV (CLAHE/Hough) + YOLOv8 + PaddleOCR v4 + spaCy + Calibrator
-│   └── report-generator/        # WeasyPrint PDF notice generator with X.509 PKI digital signing
-├── rules/                       # Version-controlled statutory rule engine
-│   ├── catalog/                 # File Catalog for user-provided Legal Metrology Act & Rules PDFs/Gazettes
-│   │   ├── catalog_manifest.json# Manifest registry of statutory enactments, amendments & gazette notifications
-│   │   ├── raw_pdfs/            # Directory to drop official Legal Metrology Act & Rules PDFs
-│   │   └── parsed_clauses/      # Structured clause-by-clause extracted JSON databases
-│   ├── scrapers/                # Web & PDF scraping pipeline (DOCA portal scraper + PDF parser)
-│   │   ├── doca_web_scraper.py  # DOCA portal web crawler & downloader
-│   │   └── pdf_rule_parser.py   # PDF layout and schedule table parser
-│   └── lm_rules_2011.json       # Production rule schema loaded by the validation engine
-├── deploy/                      # Docker Compose & Kubernetes production manifests
-│   ├── docker-compose.yml       # Production Compose file for 10 microservices
-│   └── k8s/                     # Deployments, Services, ConfigMaps, Secrets, Ingress
-├── Makefile                     # Root automation (init, migrate, test, dev, build)
-└── .env.example                 # Production environment variable specifications
+├── apps/                              # Frontend / client applications
+│   ├── mobile/                        # Flutter field app for inspectors
+│   │   └── lib/                       # Dart source
+│   └── web-dashboard/                 # React + Vite admin dashboard
+│       └── src/                       # Frontend UI source code
+│
+├── services/                          # Backend / API / processing services
+│   ├── api-gateway/                   # NGINX reverse proxy and routing layer
+│   ├── core-api/                      # FastAPI backend with SQLAlchemy and Postgres
+│   │   └── app/                       # Python backend application code
+│   ├── ai-inference/                  # Vision + OCR + validation worker
+│   └── report-generator/              # PDF generation and document signing
+│
+├── rules/                             # Rule engine and legal document artifacts
+│   ├── catalog/
+│   │   ├── catalog_manifest.json
+│   │   ├── raw_pdfs/
+│   │   └── parsed_clauses/
+│   ├── scrapers/
+│   │   ├── doca_web_scraper.py
+│   │   └── pdf_rule_parser.py
+│   └── lm_rules_2011.json
+│
+├── deploy/                            # Container orchestration and deployment config
+│   ├── docker-compose.yml
+│   └── k8s/
+│
+├── Makefile                           # Root automation commands
+├── README.md                          # Project documentation
+├── .env.example                       # Sample environment config
+└── artifacts/                         # Generated compliance artifacts and delivery exports
 ```
+
+### Frontend vs Backend
+- Frontend: `apps/mobile` and `apps/web-dashboard`
+- Backend: `services/core-api`, `services/ai-inference`, `services/report-generator`, `services/api-gateway`
+- Shared rule data and static legal metadata live under `rules/`
+- Infrastructure and Docker setup lives under `deploy/`
 
 ---
 
@@ -112,8 +129,8 @@ The scraper computes SHA-256 integrity hashes for each downloaded PDF and regist
 
 ### Prerequisites
 - Docker Engine & Docker Compose
-- Python 3.10+ (for local scripts/tests)
-- Node.js 20+ (for web dashboard development)
+- Python 3.10+ (for local backend scripts/tests)
+- Node.js 20+ (for frontend development)
 - Flutter 3.x (for mobile application)
 
 ### 1. Initialize Configuration
@@ -122,23 +139,53 @@ make init
 # Copies .env.example to .env and creates required catalog directories
 ```
 
-### 2. Build & Launch Monorepo Services
+### 2. Run the Frontend
+#### Web dashboard
+```bash
+cd apps/web-dashboard
+npm install
+npm run dev -- --host 0.0.0.0
+```
+Open: http://localhost:5173/
+
+#### Mobile app
+```bash
+cd apps/mobile
+flutter pub get
+flutter run
+```
+
+### 3. Run the Backend Locally
+```bash
+cd services/core-api
+python -m pip install -r requirements.txt
+python -m uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+```
+Open: http://localhost:8000/docs
+
+### 4. Run the Full Stack with Docker
 ```bash
 make build
 make up
 ```
 
-### 3. Run Database Migrations & Seed Rules
+### 5. Run Database Migrations & Seed Rules
 ```bash
 make migrate
 make seed
 ```
 
-### 4. Access Running Services
+### 6. Access Running Services
 - **Web Dashboard**: [http://localhost](http://localhost) (or [http://localhost:5173](http://localhost:5173) in dev)
 - **Core API Docs (Swagger)**: [http://localhost/docs](http://localhost/docs)
+- **Core API Health Check**: [http://localhost:8000/health](http://localhost:8000/health)
 - **MinIO Object Storage Console**: [http://localhost:9001](http://localhost:9001)
 - **Keycloak IAM**: [http://localhost:8080](http://localhost:8080)
+
+### 7. Stop Services
+```bash
+make down
+```
 
 ---
 
