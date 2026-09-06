@@ -24,6 +24,18 @@ class ApiService {
     ),
   );
 
+  static Future<bool> login({required String username, required String password}) async {
+    try {
+      final response = await _dio.post(
+        '$baseUrl/api/v1/auth/login',
+        data: {'username': username, 'password': password, 'requested_role': 'Inspector'},
+      );
+      return response.statusCode == 200 && response.data is Map && response.data['access_token'] != null;
+    } on DioException {
+      return false;
+    }
+  }
+
   static Future<ScanResult> scanVerify({
     required String imagePath,
     String? productName,
