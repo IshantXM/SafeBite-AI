@@ -1,0 +1,50 @@
+{
+  "act_title": "The Legal Metrology Act, 2009",
+  "act_number": "1 of 2010",
+  "promulgation_authority": "Ministry of Law and Justice (Legislative Department)",
+  "sections": [
+    {
+      "section_number": "18",
+      "heading": "Declarations on pre-packaged commodities",
+      "subsections": [
+        {
+          "index": "1",
+          "text": "No person shall manufacture, pack, sell, distribute, deliver, offer, expose or possess for sale any pre-packaged commodity, unless such package is in such standard quantities or number and bears thereon such declarations and markings in such manner as may be prescribed.",
+          "mandatory": true
+        },
+        {
+          "index": "2",
+          "text": "Any advertisement mentioning the retail sale price of a pre-packaged commodity shall contain a declaration as to the net quantity or number of the commodity contained in the package.",
+          "mandatory": true
+        }
+      ]
+    },
+    {
+      "section_number": "36",
+      "heading": "Penalty for manufacture, sale, etc., of non-standard packages",
+      "subsections": [
+        {
+          "index": "1",
+          "text": "Whoever manufactures, packs, imports, sells, distributes, delivers or causes to be sold, distributed or delivered, or offers, exposes or possesses for sale, any pre-packaged commodity which does not conform to the declarations on the package as provided in this Act, shall be punished with fine which may extend to twenty-five thousand rupees, for the second offence, with fine which may extend to fifty thousand rupees and for the subsequent offence, with fine which shall not be less than fifty thousand rupees but which may extend to one lakh rupees or with imprisonment for a term which may extend to one year or with both.",
+          "penalty": {
+            "first_offence_max_inr": 25000,
+            "second_offence_max_inr": 50000,
+            "subsequent_offence_min_inr": 50000,
+            "subsequent_offence_max_inr": 100000,
+            "imprisonment_max_months": 12
+          }
+        },
+        {
+          "index": "2",
+          "text": "Whoever manufactures or packs or imports or causes to be manufactured or packed or imported, any non-standard package, with error in net quantity as specified in the rules made under this Act, shall be punished with fine which shall not be less than ten thousand rupees but which may extend to fifty thousand rupees and for the second offence, with fine which may extend to one lakh rupees or with imprisonment for a term which may extend to one year or with both.",
+          "penalty": {
+            "first_offence_min_inr": 10000,
+            "first_offence_max_inr": 50000,
+            "second_offence_max_inr": 100000,
+            "imprisonment_max_months": 12
+          }
+        }
+      ]
+    }
+  ]
+}

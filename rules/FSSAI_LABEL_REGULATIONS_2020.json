@@ -1,0 +1,69 @@
+{
+  "rule_set_name": "FSSAI (Labelling and Display) Regulations, 2020",
+  "version": "2020.1",
+  "statutory_act": "Food Safety and Standards Act, 2006",
+  "enforcing_authority": "Food Safety and Standards Authority of India (FSSAI)",
+  "rules": [
+    {
+      "rule_id": "FSSAI_LICENSE_VAL",
+      "clause_reference": "FSSAI Reg 5(1)",
+      "field_key": "FSSAI_NO",
+      "description": "Mandatory FSSAI logo and valid 14-digit registration/license number.",
+      "mandatory": true,
+      "severity": "CRITICAL",
+      "regex": "^[0-9]{14}$"
+    },
+    {
+      "rule_id": "FSSAI_VEG_NON_VEG_LOGO",
+      "clause_reference": "FSSAI Reg 5(4)",
+      "field_key": "VEG_NON_VEG_SYMBOL",
+      "description": "Mandatory Veg (Green circle inside square) or Non-Veg (Brown triangle inside square) symbol.",
+      "mandatory": true,
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "FSSAI_INGREDIENTS_ORDER",
+      "clause_reference": "FSSAI Reg 5(2)",
+      "field_key": "INGREDIENTS_LIST",
+      "description": "Ingredients listed in descending order of incoming weight or volume at the time of manufacture.",
+      "mandatory": true,
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "FSSAI_ALLERGEN_DECLARATION",
+      "clause_reference": "FSSAI Reg 5(3)",
+      "field_key": "ALLERGEN_WARNING",
+      "description": "Distinct declaration or bolding for recognized allergens (Gluten, Crustaceans, Milk, Nuts, Soy, Peanuts, Wheat, Sulfites).",
+      "mandatory": true,
+      "severity": "CRITICAL",
+      "recognized_allergens": ["gluten", "crustaceans", "milk", "dairy", "nuts", "peanuts", "soy", "soya", "wheat", "sulfites", "tree nuts"]
+    },
+    {
+      "rule_id": "FSSAI_NUTRITIONAL_PANEL",
+      "clause_reference": "FSSAI Reg 5(5)",
+      "field_key": "NUTRITIONAL_INFO",
+      "description": "Mandatory 9-nutrient panel per 100g/100ml or single serve (Energy, Protein, Carbohydrates, Total Sugars, Added Sugars, Total Fat, Saturated Fat, Trans Fat, Sodium).",
+      "mandatory": true,
+      "severity": "CRITICAL",
+      "mandatory_nutrients": [
+        "energy",
+        "protein",
+        "carbohydrates",
+        "total_sugars",
+        "added_sugars",
+        "total_fat",
+        "saturated_fat",
+        "trans_fat",
+        "sodium"
+      ]
+    },
+    {
+      "rule_id": "FSSAI_EXPIRY_DATE",
+      "clause_reference": "FSSAI Reg 5(7)",
+      "field_key": "EXP_DATE",
+      "description": "Mandatory 'Best Before' or 'Use By' / Expiry Date validity.",
+      "mandatory": true,
+      "severity": "CRITICAL"
+    }
+  ]
+}

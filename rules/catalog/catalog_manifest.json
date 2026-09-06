@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "catalog_version": "2026.1",
+  "ministry": "Ministry of Consumer Affairs, Food and Public Distribution, Government of India",
+  "department": "Department of Consumer Affairs (DOCA)",
+  "enactments": [
+    {
+      "id": "LM_ACT_2009",
+      "title": "The Legal Metrology Act, 2009",
+      "act_number": "Act No. 1 of 2010",
+      "enactment_date": "2010-01-13",
+      "effective_date": "2011-04-01",
+      "raw_pdf_filename": "legal_metrology_act_2009.pdf",
+      "source_url": "https://consumeraffairs.nic.in/sites/default/files/act_rules/act2009.pdf",
+      "parsed_json_file": "rules/catalog/parsed_clauses/lm_act_2009.json",
+      "key_enforcement_sections": [
+        {
+          "section": "18",
+          "title": "Provisions regarding packaged commodities",
+          "description": "No person shall manufacture, pack, sell, distribute, deliver, offer, expose or possess for sale any pre-packaged commodity unless it bears declarations and markings in prescribed manner."
+        },
+        {
+          "section": "36(1)",
+          "title": "Penalty for manufacture, sale, etc., of non-standard packages",
+          "first_offence_fine_inr": 25000,
+          "second_offence_fine_inr": 50000,
+          "subsequent_offence_fine_inr": 100000,
+          "imprisonment_max_months": 12
+        },
+        {
+          "section": "36(2)",
+          "title": "Penalty for sale of pre-packaged commodity in non-compliance with rules",
+          "first_offence_fine_inr": 50000,
+          "second_offence_fine_inr": 100000
+        }
+      ]
+    },
+    {
+      "id": "LM_PCR_2011",
+      "title": "The Legal Metrology (Packaged Commodities) Rules, 2011",
+      "notification_number": "G.S.R. 202(E)",
+      "enactment_date": "2011-03-07",
+      "effective_date": "2011-04-01",
+      "raw_pdf_filename": "lm_packaged_commodities_rules_2011.pdf",
+      "source_url": "https://consumeraffairs.nic.in/sites/default/files/act_rules/WM-Rules-2011.pdf",
+      "parsed_json_file": "rules/catalog/parsed_clauses/packaged_commodities_rules_2011.json",
+      "mandatory_declarations": [
+        "Rule 6(1)(a): Name and complete address of the manufacturer / packer / importer",
+        "Rule 6(1)(b): Common or generic name of commodity & Net Quantity in standard SI units",
+        "Rule 6(1)(c): Maximum Retail Price (MRP) inclusive of all taxes, Unit Sale Price (USP)",
+        "Rule 6(1)(d): Month and year in which commodity is manufactured / pre-packed / imported",
+        "Rule 6(1)(e): Consumer care details (name, designation, address, telephone, email)",
+        "Rule 6(1)(f): Country of origin on imported packaged goods",
+        "Rule 7 & Schedule II: Minimum font height thresholds for numerals and letters"
+      ]
+    },
+    {
+      "id": "LM_PCR_AMEND_2017",
+      "title": "Legal Metrology (Packaged Commodities) Amendment Rules, 2017",
+      "notification_number": "G.S.R. 629(E)",
+      "enactment_date": "2017-06-23",
+      "effective_date": "2018-01-01",
+      "raw_pdf_filename": "lm_amendment_rules_2017.pdf",
+      "source_url": "https://consumeraffairs.nic.in/sites/default/files/act_rules/GSR629.pdf",
+      "key_changes": [
+        "Introduction of Unit Sale Price (USP) declarations for multi-piece packages",
+        "Increased font size requirements for net quantity and MRP declarations",
+        "Prohibition of dual MRP printing or sticker overlays"
+      ]
+    },
+    {
+      "id": "LM_PCR_AMEND_2021",
+      "title": "Legal Metrology (Packaged Commodities) Amendment Rules, 2021",
+      "notification_number": "G.S.R. 779(E)",
+      "enactment_date": "2021-11-02",
+      "effective_date": "2022-12-01",
+      "raw_pdf_filename": "lm_amendment_rules_2021.pdf",
+      "source_url": "https://consumeraffairs.nic.in/sites/default/files/act_rules/GSR779.pdf",
+      "key_changes": [
+        "Universal Unit Sale Price (USP) in Rupees per gram/ml/number/meter",
+        "Removal of Schedule II quantity packaging restrictions allowing custom pack sizes",
+        "Mandatory date of manufacture instead of packed date for industrial commodities"
+      ]
+    }
+  ]
+}

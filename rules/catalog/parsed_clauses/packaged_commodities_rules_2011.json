@@ -1,0 +1,87 @@
+{
+  "rules_title": "The Legal Metrology (Packaged Commodities) Rules, 2011",
+  "statutory_authority": "Section 52(2)(j) & (q) read with Section 18(1) of LM Act 2009",
+  "rules": [
+    {
+      "rule_number": "6",
+      "rule_title": "Declarations to be made on every package",
+      "subrules": [
+        {
+          "clause": "6(1)(a)",
+          "heading": "Manufacturer/Packer/Importer Identity",
+          "requirement": "The name and complete address of the manufacturer, or where the manufacturer is not the packer, the name and address of the manufacturer and packer and for any imported package the name and complete address of the importer shall be declared."
+        },
+        {
+          "clause": "6(1)(b)",
+          "heading": "Generic Name & Net Quantity",
+          "requirement": "The common or generic names of the commodity contained in the package and the net quantity in terms of the standard unit of weight or measure, or in number. Prohibits non-standard qualifiers such as 'approx', 'when packed', 'jumbo', 'extra large'."
+        },
+        {
+          "clause": "6(1)(c)",
+          "heading": "Maximum Retail Price (MRP) & Unit Sale Price",
+          "requirement": "The maximum retail price at which the commodity in packaged form may be sold to the consumer inclusive of all taxes, in the form 'Maximum or Max. Retail Price Rs./₹ ... inclusive of all taxes' or 'MRP Rs./₹ ... incl. of all taxes'. For packages containing more than one piece, unit sale price shall also be declared."
+        },
+        {
+          "clause": "6(1)(d)",
+          "heading": "Month and Year of Manufacture / Packing",
+          "requirement": "The month and year in which the commodity is manufactured or pre-packed or imported shall be clearly indicated."
+        },
+        {
+          "clause": "6(1)(e)",
+          "heading": "Consumer Care Details",
+          "requirement": "Name, address, telephone number, and email address of the person who can be or the office which can be contacted, in case of consumer complaints."
+        },
+        {
+          "clause": "6(1)(f)",
+          "heading": "Country of Origin",
+          "requirement": "The name of the country of origin or manufacture or assembly in case of imported products shall be mentioned on the package."
+        }
+      ]
+    },
+    {
+      "rule_number": "7",
+      "rule_title": "Principal Display Panel and Font Specifications",
+      "subrules": [
+        {
+          "clause": "7(1)",
+          "heading": "Principal Display Panel (PDP) Definition",
+          "requirement": "All mandatory declarations shall be grouped together and displayed prominently on the Principal Display Panel (PDP)."
+        },
+        {
+          "clause": "Schedule II",
+          "heading": "Minimum Height of Numerals and Letters",
+          "table": [
+            {
+              "pdp_area_cm2_min": 0,
+              "pdp_area_cm2_max": 50,
+              "min_numeral_height_mm": 1.0,
+              "min_letter_height_mm": 1.0,
+              "min_blown_moulded_height_mm": 1.5
+            },
+            {
+              "pdp_area_cm2_min": 50,
+              "pdp_area_cm2_max": 200,
+              "min_numeral_height_mm": 2.0,
+              "min_letter_height_mm": 1.5,
+              "min_blown_moulded_height_mm": 3.0
+            },
+            {
+              "pdp_area_cm2_min": 200,
+              "pdp_area_cm2_max": 1000,
+              "min_numeral_height_mm": 4.0,
+              "min_letter_height_mm": 2.0,
+              "min_blown_moulded_height_mm": 6.0
+            },
+            {
+              "pdp_area_cm2_min": 1000,
+              "pdp_area_cm2_max": 999999,
+              "min_numeral_height_mm": 6.0,
+              "min_letter_height_mm": 3.0,
+              "min_blown_moulded_height_mm": 9.0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

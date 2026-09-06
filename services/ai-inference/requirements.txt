@@ -1,0 +1,15 @@
+celery>=5.3.6
+redis>=5.0.3
+opencv-python-headless>=4.9.0
+numpy>=1.26.0
+ultralytics>=8.1.0
+paddlepaddle>=2.6.0
+paddleocr>=2.7.3
+spacy>=3.7.4
+pillow>=10.2.0
+pydantic>=2.6.0
+pydantic-settings>=2.2.0
+sqlalchemy>=2.0.28
+psycopg2-binary>=2.9.9
+requests>=2.31.0
+pytest>=8.0.0

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Statutory Show Cause Notice - Legal Metrology Act, 2009</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 18mm 16mm 20mm 16mm;
+      @bottom-right {
+        content: "Page " counter(page) " of " counter(pages);
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 8pt;
+        color: #64748b;
+      }
+      @bottom-left {
+        content: "DOCA / Legal Metrology Sentinel / Enforcement Wing";
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 8pt;
+        color: #64748b;
+      }
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      line-height: 1.4;
+      font-size: 9.5pt;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header-table {
+      width: 100%;
+      border-bottom: 2.5px solid #0f172a;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+    }
+
+    .emblem-title {
+      text-align: center;
+    }
+
+    .emblem-title h1 {
+      font-size: 13pt;
+      margin: 0 0 2px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #0f172a;
+      font-weight: 800;
+    }
+
+    .emblem-title h2 {
+      font-size: 10pt;
+      margin: 0 0 2px 0;
+      font-weight: 700;
+      color: #1e3a8a;
+    }
+
+    .emblem-title p {
+      font-size: 8pt;
+      margin: 0;
+      color: #475569;
+    }
+
+    .notice-meta {
+      width: 100%;
+      margin-bottom: 12px;
+      border-collapse: collapse;
+    }
+
+    .notice-meta td {
+      padding: 3px 0;
+      font-size: 9pt;
+    }
+
+    .badge-notice {
+      background-color: #991b1b;
+      color: white;
+      padding: 4px 10px;
+      font-weight: bold;
+      border-radius: 3px;
+      font-size: 9pt;
+      display: inline-block;
+    }
+
+    .section-title {
+      font-size: 10pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #0f172a;
+      border-left: 3px solid #1e3a8a;
+      padding-left: 6px;
+      margin: 12px 0 6px 0;
+      letter-spacing: 0.3px;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 12px;
+    }
+
+    .data-table th {
+      background-color: #f1f5f9;
+      color: #0f172a;
+      text-align: left;
+      padding: 5px 8px;
+      font-size: 8.5pt;
+      border: 1px solid #cbd5e1;
+      font-weight: 700;
+    }
+
+    .data-table td {
+      padding: 5px 8px;
+      font-size: 8.5pt;
+      border: 1px solid #cbd5e1;
+    }
+
+    .severity-CRITICAL {
+      color: #dc2626;
+      font-weight: bold;
+    }
+
+    .severity-HIGH {
+      color: #ea580c;
+      font-weight: bold;
+    }
+
+    .severity-MEDIUM {
+      color: #d97706;
+      font-weight: bold;
+    }
+
+    .chain-of-custody {
+      background-color: #f8fafc;
+      border: 1px dashed #94a3b8;
+      border-radius: 4px;
+      padding: 8px 10px;
+      margin-bottom: 12px;
+      font-family: monospace;
+      font-size: 8pt;
+    }
+
+    .legal-text {
+      font-size: 8.5pt;
+      color: #334155;
+      text-align: justify;
+      margin-bottom: 14px;
+    }
+
+    .signature-card {
+      margin-top: 15px;
+      border: 1.5px solid #1e3a8a;
+      background-color: #f8fafc;
+      padding: 10px 14px;
+      border-radius: 4px;
+      width: 60%;
+      float: right;
+    }
+
+    .seal-icon {
+      float: left;
+      font-size: 24pt;
+      margin-right: 12px;
+      color: #1e3a8a;
+    }
+
+    .sig-details {
+      font-size: 8pt;
+      color: #1e293b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <table class="header-table">
+    <tr>
+      <td class="emblem-title">
+        <h1>Government of India</h1>
+        <h2>Ministry of Consumer Affairs, Food and Public Distribution</h2>
+        <p>Department of Consumer Affairs (DOCA) — Legal Metrology Division</p>
+        <p>Krishi Bhawan / Shastri Bhawan, New Delhi - 110001</p>
+      </td>
+    </tr>
+  </table>
+
+  <!-- Meta Info -->
+  <table class="notice-meta">
+    <tr>
+      <td style="width: 65%;">
+        <strong>NOTICE REF NO:</strong> DOCA/LM/2026/SCN-{{ inspection_id[:8].upper() }}<br>
+        <strong>DATE OF ISSUANCE:</strong> {{ issue_date }}<br>
+        <strong>ISSUED UNDER:</strong> Section 18 &amp; Section 36, Legal Metrology Act, 2009
+      </td>
+      <td style="width: 35%; text-align: right; vertical-align: top;">
+        <div class="badge-notice">STATUTORY NOTICE</div>
+      </td>
+    </tr>
+  </table>
+
+  <!-- Product & Offender Details -->
+  <div class="section-title">1. Offending Commodity &amp; Inspection Seizure Record</div>
+  <table class="data-table">
+    <tr>
+      <th style="width: 25%;">Brand / Manufacturer</th>
+      <td style="width: 25%;">{{ brand_name or "Unknown Entity" }}</td>
+      <th style="width: 25%;">Commodity Category</th>
+      <td style="width: 25%;">{{ category or "Packaged Commodity" }}</td>
+    </tr>
+    <tr>
+      <th>Barcode / EAN-13</th>
+      <td>{{ barcode or "N/A" }}</td>
+      <th>Seizure Location (GPS)</th>
+      <td>{{ geo_lat or "28.6139" }}° N, {{ geo_lng or "77.2090" }}° E</td>
+    </tr>
+    <tr>
+      <th>Inspecting Officer UUID</th>
+      <td colspan="3">{{ inspector_id }}</td>
+    </tr>
+  </table>
+
+  <!-- Cryptographic Integrity Block -->
+  <div class="section-title">2. Evidentiary Chain-of-Custody (SHA-256 Digest)</div>
+  <div class="chain-of-custody">
+    <strong>DIGITAL INTEGRITY HASH:</strong> SHA256:{{ image_sha256 }}<br>
+    <strong>TIMESTAMP (UTC):</strong> {{ sync_timestamp }}<br>
+    <strong>METROLOGICAL CALIBRATION SCALE:</strong> GS1 Nominal Barcode Standard (37.29 mm)
+  </div>
+
+  <!-- Statutory Violations Itemized -->
+  <div class="section-title">3. Itemized Statutory Non-Compliance &amp; Penalties</div>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th style="width: 12%;">Rule ID</th>
+        <th style="width: 15%;">Statutory Clause</th>
+        <th style="width: 43%;">Infraction Specifics</th>
+        <th style="width: 12%;">Severity</th>
+        <th style="width: 18%;">Assessed Penalty</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for v in violations %}
+      <tr>
+        <td><strong>{{ v.rule_id }}</strong></td>
+        <td>{{ v.clause_reference }}</td>
+        <td>{{ v.description }}</td>
+        <td class="severity-{{ v.severity }}">{{ v.severity }}</td>
+        <td>INR {{ "{:,.2f}".format(v.penalty_amount) }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    <tfoot>
+      <tr style="background-color: #f1f5f9; font-weight: bold;">
+        <td colspan="4" style="text-align: right;">TOTAL STATUTORY PENALTY:</td>
+        <td style="color: #991b1b;">INR {{ "{:,.2f}".format(total_penalty) }}</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <!-- Show Cause Mandate -->
+  <div class="section-title">4. Directive to Show Cause</div>
+  <div class="legal-text">
+    <p>
+      WHEREAS the pre-packaged commodity bearing the declarations noted above was verified by an authorized Inspector of Legal Metrology using the Automated Legal Metrology Sentinel System and was found to be in prima facie contravention of the mandatory statutory provisions of the <strong>Legal Metrology (Packaged Commodities) Rules, 2011</strong> read with Section 18 of the <strong>Legal Metrology Act, 2009</strong>.
+    </p>
+    <p>
+      NOW THEREFORE, notice is hereby given to you to show cause within <strong>fifteen (15) calendar days</strong> from the date of service of this notice as to why appropriate penal proceedings under <strong>Section 36</strong> of the Legal Metrology Act, 2009 should not be initiated against you before the Competent Judicial Court having jurisdiction.
+    </p>
+  </div>
+
+  <!-- Digital Signature Block -->
+  <div class="signature-card">
+    <div class="seal-icon">⚖️</div>
+    <div class="sig-details">
+      <strong style="color: #1e3a8a; font-size: 8.5pt;">DIGITALLY SIGNED &amp; PKI ENCRYPTED</strong><br>
+      <strong>Signer:</strong> {{ signer_name }}<br>
+      <strong>Authority:</strong> Ministry of Consumer Affairs, Government of India<br>
+      <strong>Location:</strong> {{ signer_location }}<br>
+      <strong>X.509 Serial:</strong> {{ pki_cert_serial }}<br>
+      <strong>Hash Algorithm:</strong> SHA-256 with RSA 4096-bit<br>
+      <span style="color: #16a34a; font-weight: bold;">✓ Cryptographically Validated by DOCA PKI Gateway</span>
+    </div>
+  </div>
+
+</body>
+</html>

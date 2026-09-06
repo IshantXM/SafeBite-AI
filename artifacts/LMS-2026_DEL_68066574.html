@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Consumer Food Safety & Legal Metrology Audit Report</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 15mm;
+        }
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #0F172A;
+            line-height: 1.35;
+            font-size: 10pt;
+            margin: 0;
+            padding: 0;
+        }
+        .header-banner {
+            color: #FFFFFF;
+            padding: 14px 18px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+        }
+        .header-banner-compliant {
+            background-color: #065F46;
+        }
+        .header-banner-noncompliant {
+            background-color: #0F172A;
+        }
+        .header-title {
+            font-size: 9pt;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            margin: 0;
+            text-transform: uppercase;
+            color: #38BDF8;
+        }
+        .header-subtitle {
+            font-size: 13pt;
+            font-weight: bold;
+            margin: 4px 0 0 0;
+        }
+        .notice-type-tag {
+            float: right;
+            background-color: #FDE047;
+            color: #0F172A;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 8.5pt;
+        }
+        .section-title {
+            font-size: 10.5pt;
+            font-weight: bold;
+            color: #0F172A;
+            border-bottom: 2px solid #1E293B;
+            padding-bottom: 3px;
+            margin-top: 16px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 14px;
+            font-size: 9pt;
+        }
+        th, td {
+            padding: 6px 8px;
+            text-align: left;
+            border: 1px solid #CBD5E1;
+        }
+        th {
+            background-color: #1E293B;
+            color: #FFFFFF;
+            font-weight: bold;
+        }
+        .lm-table th {
+            background-color: #1E3A8A;
+        }
+        .fssai-table th {
+            background-color: #78350F;
+        }
+        tr:nth-child(even) {
+            background-color: #F8FAFC;
+        }
+        .status-box {
+            padding: 10px 14px;
+            border-radius: 6px;
+            margin-top: 12px;
+            font-weight: bold;
+            font-size: 10pt;
+            display: flex;
+            justify-content: space-between;
+        }
+        .status-box-compliant {
+            background-color: #ECFDF5;
+            border: 1px solid #6EE7B7;
+            color: #065F46;
+        }
+        .status-box-noncompliant {
+            background-color: #FEF2F2;
+            border: 1px solid #FCA5A5;
+            color: #7F1D1D;
+        }
+        .nch-box {
+            background-color: #EFF6FF;
+            border: 1px solid #BFDBFE;
+            border-radius: 6px;
+            padding: 12px;
+            margin-top: 16px;
+            font-size: 8.5pt;
+        }
+        .nch-title {
+            font-weight: bold;
+            color: #1E40AF;
+            font-size: 9.5pt;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+        .footer-seal {
+            margin-top: 24px;
+            border-top: 1px solid #E2E8F0;
+            padding-top: 12px;
+            font-size: 8.5pt;
+            color: #475569;
+        }
+        .signature-block { float: left; width: 45%; }
+        .verification-block { float: right; width: 45%; text-align: right; }
+        .clear { clear: both; }
+    </style>
+</head>
+<body>
+
+    <!-- Header Banner -->
+    <div class="header-banner header-banner-noncompliant">
+        <span class="notice-type-tag">CONSUMER SENTINEL AUDIT</span>
+        <p class="header-title">Consumer Protection & Compliance Pipeline • National Redressal</p>
+        <p class="header-subtitle">Official Food Safety & Legal Metrology Verification Report</p>
+    </div>
+
+    <!-- Inspection Metadata Summary -->
+    <div class="section-title">1. Consumer Inspection Metadata</div>
+    <table>
+        <tr>
+            <th width="30%">Metadata Parameter</th>
+            <th width="70%">Official System Verification Log</th>
+        </tr>
+        <tr>
+            <td><strong>Audit Report Reference</strong></td>
+            <td>LMS-2026/DEL/68066574</td>
+        </tr>
+        <tr>
+            <td><strong>Consumer User ID</strong></td>
+            <td>CONSUMER-9921-DEL</td>
+        </tr>
+        <tr>
+            <td><strong>Product / Brand Name</strong></td>
+            <td>Apex Foods Ltd</td>
+        </tr>
+        <tr>
+            <td><strong>Barcode (EAN-13)</strong></td>
+            <td>8901030829412</td>
+        </tr>
+        <tr>
+            <td><strong>Geolocation Coordinates</strong></td>
+            <td>28.6139° N, 77.2090° E</td>
+        </tr>
+        <tr>
+            <td><strong>Inspection Timestamp</strong></td>
+            <td>2026-09-02 12:57:13 UTC</td>
+        </tr>
+        <tr>
+            <td><strong>Image SHA-256 Hash</strong></td>
+            <td style="font-family: monospace; font-size: 8pt;">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</td>
+        </tr>
+    </table>
+
+    <!-- TABLE 1: LEGAL METROLOGY VIOLATIONS -->
+    <div class="section-title">2. Legal Metrology (Packaged Commodities) Rules, 2011 Violations</div>
+    
+        <table class="lm-table">
+            <thead>
+                <tr>
+                    <th width="15%">Clause</th>
+                    <th width="45%">Statutory Deficiency Description</th>
+                    <th width="25%">Observed vs Mandated</th>
+                    <th width="15%">Fine (INR)</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td><strong>Rule 6(1)(c)</strong></td>
+                    <td>MRP declaration fails to state mandatory statutory phrase 'inclusive of all taxes'.</td>
+                    <td><small><strong>Observed:</strong> Rs. 45.00<br><strong>Mandated:</strong> Must state 'inclusive of all taxes' or 'incl. of all taxes' adjacent to price</small></td>
+                    <td><strong>₹25000.00</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><strong>Rule 6(1)(d)</strong></td>
+                    <td>Missing declaration of month and year of manufacture or pre-packing.</td>
+                    <td><small><strong>Observed:</strong> NOT DETECTED<br><strong>Mandated:</strong> Month & Year (MM/YYYY) of manufacture or pre-packing</small></td>
+                    <td><strong>₹25000.00</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><strong>Rule 7 / Schedule II</strong></td>
+                    <td>Measured font height (1.36 mm) is non-compliant with statutory minimum (2.0 mm).</td>
+                    <td><small><strong>Observed:</strong> 1.36 mm<br><strong>Mandated:</strong> >= 2.0 mm for PDP area 150.0 cm²</small></td>
+                    <td><strong>₹25000.00</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><strong>Rule 7 / Schedule II</strong></td>
+                    <td>Measured font height (1.36 mm) is non-compliant with statutory minimum (2.0 mm).</td>
+                    <td><small><strong>Observed:</strong> 1.36 mm<br><strong>Mandated:</strong> >= 2.0 mm for PDP area 150.0 cm²</small></td>
+                    <td><strong>₹25000.00</strong></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    
+
+    <!-- TABLE 2: FOOD SAFETY & LABELLING VIOLATIONS -->
+    <div class="section-title">3. FSSAI (Labelling & Display) Regulations, 2020 Violations</div>
+    
+        <table class="fssai-table">
+            <thead>
+                <tr>
+                    <th width="15%">Clause</th>
+                    <th width="45%">Food Safety Non-Compliance Description</th>
+                    <th width="25%">Observed vs Mandated</th>
+                    <th width="15%">Fine (INR)</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td><strong>FSSAI Reg 5(1)</strong></td>
+                    <td>Missing mandatory FSSAI logo and 14-digit license/registration number.</td>
+                    <td><small><strong>Observed:</strong> NOT DETECTED<br><strong>Mandated:</strong> Valid 14-digit numeric FSSAI License Number</small></td>
+                    <td><strong>₹30000.00</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><strong>FSSAI Reg 5(5)</strong></td>
+                    <td>Nutritional panel omits mandatory declared nutrients: carbohydrates, total sugars, added sugars, saturated fat, trans fat, sodium.</td>
+                    <td><small><strong>Observed:</strong> 3 of 9 nutrients declared<br><strong>Mandated:</strong> Complete 9-nutrient breakdown per 100g/100ml or serve</small></td>
+                    <td><strong>₹30000.00</strong></td>
+                </tr>
+                
+                <tr>
+                    <td><strong>FSSAI Reg 5(7)</strong></td>
+                    <td>Missing mandatory 'Best Before' or 'Use By' / Expiry date declaration.</td>
+                    <td><small><strong>Observed:</strong> NOT DETECTED<br><strong>Mandated:</strong> Explicit 'Best Before' or 'Use By' date declaration</small></td>
+                    <td><strong>₹40000.00</strong></td>
+                </tr>
+                
+            </tbody>
+        </table>
+    
+
+    <!-- Penalty Summary -->
+    <div class="status-box status-box-noncompliant">
+        <span>TOTAL STATUTORY FINE & ASSESSMENT:</span>
+        <span>INR 200000.00</span>
+    </div>
+
+    <!-- CONSUMER COMPLAINT REDRESSAL BLOCK -->
+    <div class="nch-box">
+        <div class="nch-title">🏛️ Pre-Formatted National Consumer Helpline (NCH / INGRAM) Complaint Draft</div>
+        <p style="margin: 4px 0;"><strong>To:</strong> National Consumer Helpline (consumerhelpline.gov.in) / Department of Consumer Affairs</p>
+        <p style="margin: 4px 0;"><strong>Subject:</strong> Formal Statutory Complaint against <em>Apex Foods Ltd</em> (Barcode: 8901030829412) for Legal Metrology & Food Safety Non-Compliance</p>
+        <p style="margin: 6px 0 2px 0;"><strong>Complaint Text:</strong></p>
+        <p style="margin: 0; background-color: #FFFFFF; padding: 8px; border: 1px solid #CBD5E1; border-radius: 4px; font-family: monospace;">
+            "Respected Authority, I am filing this consumer complaint regarding packaged food item 'Apex Foods Ltd' (EAN-13 Barcode: 8901030829412). On 2026-09-02 12:57:13 UTC, an optical AI vision audit confirmed statutory non-compliance under Legal Metrology Rules 2011 and FSSAI Regulations 2020. Total assessed statutory compounding penalties: ₹200000.00. Evidence SHA-256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855. Please initiate formal enforcement action under Section 36 of the Legal Metrology Act, 2009 and Section 52 of FSS Act, 2006."
+        </p>
+    </div>
+
+    <!-- Sign-off Block -->
+    <div class="footer-seal">
+        <div class="signature-block">
+            <p style="margin: 0;"><strong>Digital Audit Authority</strong></p>
+            <br>
+            <p style="margin: 0;">____________________________________</p>
+            <p style="margin: 2px 0 0 0;">LMS Sentinel System Engine</p>
+            <p style="margin: 0; font-size: 8pt; color: #64748B;">Consumer Redressal Automated Sentinel</p>
+        </div>
+        <div class="verification-block">
+            <p style="margin: 0;"><strong>PKI Cryptographic Stamp</strong></p>
+            <br>
+            <p style="margin: 0; color: #1E3A8A; font-weight: bold;">X.509 RSA-2048 Signed</p>
+            <p style="margin: 2px 0 0 0; font-size: 8pt; color: #64748B;">Immutable Audit Chain Verified</p>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sentinel-ai-worker
+  namespace: lms-sentinel
+  labels:
+    app: sentinel-ai-worker
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sentinel-ai-worker
+  template:
+    metadata:
+      labels:
+        app: sentinel-ai-worker
+    spec:
+      containers:
+        - name: ai-worker
+          image: lms-sentinel/ai-inference:latest
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: sentinel-config
+            - secretRef:
+                name: sentinel-secrets
+          resources:
+            requests:
+              cpu: "1000m"
+              memory: "2Gi"
+            limits:
+              cpu: "4000m"
+              memory: "8Gi"

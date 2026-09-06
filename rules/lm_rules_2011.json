@@ -1,0 +1,209 @@
+{
+  "rule_set_name": "Legal Metrology (Packaged Commodities) Rules, 2011",
+  "version": "2026.1",
+  "statutory_act": "The Legal Metrology Act, 2009 (Act No. 1 of 2010)",
+  "enforcing_authority": "Ministry of Consumer Affairs, Food and Public Distribution, Government of India",
+  "default_penalties": {
+    "section_36_1_first_offence": 25000.0,
+    "section_36_1_second_offence": 50000.0,
+    "section_36_1_subsequent_offence": 100000.0,
+    "section_36_2_quantity_error": 50000.0
+  },
+  "rules": [
+    {
+      "rule_id": "LM_RULE_6_1_A",
+      "clause_reference": "Rule 6(1)(a)",
+      "field_key": "MANUFACTURER_NAME_ADDRESS",
+      "description": "Declaration of Name and Complete Address of Manufacturer, Packer or Importer",
+      "mandatory": true,
+      "severity": "CRITICAL",
+      "default_penalty_inr": 25000.0,
+      "validation_criteria": {
+        "required": true,
+        "min_characters": 10,
+        "required_address_components": ["pincode", "state_or_city"]
+      }
+    },
+    {
+      "rule_id": "LM_RULE_6_1_B_UNITS",
+      "clause_reference": "Rule 6(1)(b)",
+      "field_key": "NET_QUANTITY",
+      "description": "Net Quantity SI Unit adherence and prohibition of misleading non-standard qualifiers",
+      "mandatory": true,
+      "severity": "CRITICAL",
+      "default_penalty_inr": 25000.0,
+      "validation_criteria": {
+        "required": true,
+        "valid_si_units": ["g", "kg", "ml", "l", "m", "cm", "mm", "N", "U", "units", "pieces"],
+        "prohibited_qualifiers": [
+          "approx",
+          "approximate",
+          "when packed",
+          "jumbo",
+          "family size",
+          "extra large",
+          "economy pack",
+          "around"
+        ]
+      }
+    },
+    {
+      "rule_id": "LM_RULE_6_1_C_MRP",
+      "clause_reference": "Rule 6(1)(c)",
+      "field_key": "MAXIMUM_RETAIL_PRICE",
+      "description": "Mandatory MRP phrasing with 'inclusive of all taxes' or 'incl. of all taxes' and standard INR currency symbol",
+      "mandatory": true,
+      "severity": "CRITICAL",
+      "default_penalty_inr": 25000.0,
+      "validation_criteria": {
+        "required": true,
+        "currency_indicators": ["₹", "Rs", "Rs.", "INR"],
+        "tax_inclusivity_phrases": [
+          "inclusive of all taxes",
+          "incl. of all taxes",
+          "incl of all taxes",
+          "incl. all taxes"
+        ],
+        "require_numeric_price": true
+      }
+    },
+    {
+      "rule_id": "LM_RULE_6_1_D_DATE",
+      "clause_reference": "Rule 6(1)(d)",
+      "field_key": "MFG_DATE",
+      "description": "Month and Year of Manufacture / Packaging / Import",
+      "mandatory": true,
+      "severity": "HIGH",
+      "default_penalty_inr": 25000.0,
+      "validation_criteria": {
+        "required": true,
+        "date_regex_patterns": [
+          "(?:0[1-9]|1[0-2])\\s*[\\/\\.-]\\s*(?:20\\d{2}|\\d{2})",
+          "(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\\s*[,]?[\\s-]*(?:20\\d{2}|\\d{2})"
+        ]
+      }
+    },
+    {
+      "rule_id": "LM_RULE_6_1_E_CONSUMER_CARE",
+      "clause_reference": "Rule 6(1)(e)",
+      "field_key": "CONSUMER_CARE",
+      "description": "Consumer Care contact details (Name, Address, Telephone, Email)",
+      "mandatory": true,
+      "severity": "HIGH",
+      "default_penalty_inr": 25000.0,
+      "validation_criteria": {
+        "required": true,
+        "require_email_or_phone": true
+      }
+    },
+    {
+      "rule_id": "LM_RULE_6_1_F_ORIGIN",
+      "clause_reference": "Rule 6(1)(f)",
+      "field_key": "COUNTRY_OF_ORIGIN",
+      "description": "Country of Origin for imported commodities",
+      "mandatory": false,
+      "severity": "MEDIUM",
+      "default_penalty_inr": 25000.0,
+      "validation_criteria": {
+        "required_if_imported": true
+      }
+    },
+    {
+      "rule_id": "LM_FOOD_FSSAI_LICENSE",
+      "clause_reference": "Rule 6(1) & FSSAI Regs",
+      "field_key": "FSSAI_NO",
+      "description": "Mandatory 14-digit FSSAI License Number on all packaged food commodities",
+      "mandatory": true,
+      "severity": "HIGH",
+      "default_penalty_inr": 25000.0,
+      "validation_criteria": {
+        "required_for_category": ["Food", "Beverages", "Confectionery", "Dairy", "Snacks"],
+        "regex": "^[0-9]{14}$"
+      }
+    },
+    {
+      "rule_id": "LM_FOOD_VEG_NON_VEG_LOGO",
+      "clause_reference": "Food Safety (Packaging & Labelling) Reg 2.2.2",
+      "field_key": "VEG_NON_VEG_SYMBOL",
+      "description": "Mandatory green dot / brown dot dietary symbol for packaged food",
+      "mandatory": true,
+      "severity": "HIGH",
+      "default_penalty_inr": 25000.0,
+      "validation_criteria": {
+        "required_for_category": ["Food", "Beverages", "Confectionery", "Dairy", "Snacks"]
+      }
+    },
+    {
+      "rule_id": "LM_FOOD_EXPIRY_BEST_BEFORE",
+      "clause_reference": "Rule 6(1)(d) & Food Labelling Regs",
+      "field_key": "EXP_DATE",
+      "description": "Mandatory 'Best Before' or 'Use By' / Expiry date declaration on packaged food",
+      "mandatory": true,
+      "severity": "CRITICAL",
+      "default_penalty_inr": 25000.0,
+      "validation_criteria": {
+        "required_for_category": ["Food", "Beverages", "Confectionery", "Dairy", "Snacks"]
+      }
+    },
+    {
+      "rule_id": "LM_RULE_TAMPER_STICKER",
+      "clause_reference": "Rule 6 & Section 36",
+      "field_key": "TAMPER_DETECTED",
+      "description": "Detection of suspect overlapping stickers covering printed MRP or declarations",
+      "mandatory": true,
+      "severity": "CRITICAL",
+      "default_penalty_inr": 50000.0,
+      "validation_criteria": {
+        "allow_sticker_overlay": false
+      }
+    },
+    {
+      "rule_id": "LM_SCHEDULE_II_FONT_HEIGHT",
+      "clause_reference": "Rule 7 / Schedule II",
+      "field_key": "FONT_HEIGHT_CALIBRATION",
+      "description": "Minimum numeral and letter height dynamically mapped to Principal Display Panel (PDP) surface area",
+      "mandatory": true,
+      "severity": "HIGH",
+      "default_penalty_inr": 25000.0,
+      "pdp_area_thresholds": [
+        {
+          "area_cm2_min": 0,
+          "area_cm2_max": 50,
+          "min_numeral_height_mm": 1.0,
+          "min_letter_height_mm": 1.0
+        },
+        {
+          "area_cm2_min": 50,
+          "area_cm2_max": 200,
+          "min_numeral_height_mm": 2.0,
+          "min_letter_height_mm": 1.5
+        },
+        {
+          "area_cm2_min": 200,
+          "area_cm2_max": 1000,
+          "min_numeral_height_mm": 4.0,
+          "min_letter_height_mm": 2.0
+        },
+        {
+          "area_cm2_min": 1000,
+          "area_cm2_max": 999999,
+          "min_numeral_height_mm": 6.0,
+          "min_letter_height_mm": 3.0
+        }
+      ]
+    },
+    {
+      "rule_id": "LM_CONTRAST_RATIO",
+      "clause_reference": "Rule 7 & Rule 9",
+      "field_key": "CONTRAST_RATIO",
+      "description": "Adequate visual contrast between typography and packaging background for consumer legibility",
+      "mandatory": true,
+      "severity": "MEDIUM",
+      "default_penalty_inr": 15000.0,
+      "validation_criteria": {
+        "min_contrast_ratio": 3.0,
+        "standard": "WCAG 2.1 AA Graphical Object & Text Legibility"
+      }
+    }
+  ]
+}
