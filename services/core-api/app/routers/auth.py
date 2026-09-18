@@ -72,10 +72,39 @@ def _send_otp_email(email: str, code: str) -> bool:
     if not settings.SMTP_HOST or not settings.SMTP_USERNAME or not settings.SMTP_PASSWORD:
         return False
     message = EmailMessage()
-    message['Subject'] = 'Your SafetyBite-AI verification code'
+    message['Subject'] = f'{code} is your SafetyBite-AI verification code'
     message['From'] = settings.SMTP_FROM
     message['To'] = email
-    message.set_content(f'Your SafetyBite-AI OTP is {code}. It expires in 10 minutes.')
+    message.set_content(
+        f'Your SafetyBite-AI verification code is {code}.\n\n'
+        'This code expires in 10 minutes. If you did not request it, you can safely ignore this email.'
+    )
+    message.add_alternative(
+        f'''<!doctype html>
+<html lang="en">
+    <body style="margin:0;background:#f2f6f4;color:#16332d;font-family:Arial,Helvetica,sans-serif;">
+        <div style="padding:32px 16px;">
+            <div style="max-width:560px;margin:0 auto;background:#ffffff;border:1px solid #d8e5df;border-radius:16px;overflow:hidden;">
+                <div style="background:#123f35;padding:28px 32px;color:#ffffff;">
+                    <div style="font-size:13px;letter-spacing:1.6px;text-transform:uppercase;color:#a9e3c8;font-weight:bold;">SafetyBite-AI</div>
+                    <h1 style="margin:10px 0 0;font-size:26px;line-height:1.2;font-weight:700;">Verify your sign-in</h1>
+                </div>
+                <div style="padding:32px;">
+                    <p style="margin:0 0 20px;font-size:16px;line-height:1.6;">Use the verification code below to continue securely.</p>
+                    <div style="margin:24px 0;padding:20px;text-align:center;background:#e8f6ee;border:1px solid #bde3cd;border-radius:12px;">
+                        <div style="font-size:12px;letter-spacing:1.8px;text-transform:uppercase;color:#477263;font-weight:bold;">Verification code</div>
+                        <div style="margin-top:8px;font-size:36px;letter-spacing:8px;color:#123f35;font-weight:700;">{code}</div>
+                    </div>
+                    <p style="margin:0;color:#527067;font-size:14px;line-height:1.6;">This code expires in <strong>10 minutes</strong>. For your security, never share it with anyone.</p>
+                    <p style="margin:24px 0 0;color:#789087;font-size:13px;line-height:1.6;">If you did not request this code, no action is needed. Your account remains secure.</p>
+                </div>
+                <div style="padding:18px 32px;background:#f7faf8;border-top:1px solid #e3ece7;color:#789087;font-size:12px;line-height:1.5;">This is an automated message from SafetyBite-AI. Please do not reply.</div>
+            </div>
+        </div>
+    </body>
+</html>''',
+            subtype='html',
+            )
     with smtplib.SMTP(settings.SMTP_HOST, settings.SMTP_PORT, timeout=15) as server:
         server.starttls()
         server.login(settings.SMTP_USERNAME, settings.SMTP_PASSWORD)
